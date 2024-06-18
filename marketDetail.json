@@ -1,0 +1,132 @@
+{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "$data": "${value}",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "40px",
+                    "backgroundImage": {
+                        "url": "https://raw.githubusercontent.com/pnp/AdaptiveCards-Templates/main/samples/timeline-holidays/assets/timeline_node.svg",
+                        "horizontalAlignment": "Center",
+                        "fillMode": "RepeatVertically"
+                    },
+                    "horizontalAlignment": "Right"
+                },
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "Container",
+                            "spacing": "None",
+                            "items": [
+                                {
+                                    "type": "Container",
+                                    "minHeight": "15px"
+                                },
+                                {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                        {
+                                            "type": "Column",
+                                            "width": "stretch",
+                                            "items": [
+                                                {
+                                                    "type": "TextBlock",
+                                                    "text": "${fields.Title}",
+                                                    "wrap": true,
+                                                    "weight": "Bolder",
+                                                    "color": "Accent"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Column",
+                                            "width": "auto",
+                                            "items": [
+                                                {
+                                                    "type": "TextBlock",
+                                                    "text": "${formatNumber(fields.Precio,0)}€",
+                                                    "wrap": true,
+                                                    "weight": "Bolder",
+                                                    "color": "default"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Container",
+                                    "backgroundImage": {
+                                        "url": "${fields.ImagenPrincipal}",
+                                        "horizontalAlignment": "Center",
+                                        "verticalAlignment": "Center"
+                                    },
+                                    "minHeight": "160px",
+                                    "spacing": "Medium"
+                                },
+                                {
+                                    "type": "ColumnSet",
+                                    "columns": [
+                                        {
+                                            "type": "Column",
+                                            "width": "stretch",
+                                            "items": [
+                                                {
+                                                    "type": "TextBlock",
+                                                    "text": "{{DATE(${createdDateTime},LONG)}}",
+                                                    "wrap": true,
+                                                    "size": "Small",
+                                                    "isSubtle": true
+                                                },
+                                                {
+                                                    "type": "TextBlock",
+                                                    "text": "${fields.Estado}",
+                                                    "wrap": true,
+                                                    "size": "Small",
+                                                    "isSubtle": true
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "Column",
+                                            "width": "auto",
+                                            "items": [
+                                                {
+                                                    "type": "ActionSet",
+                                                    "actions": [
+                                                        {
+                                                            "type": "Action.OpenUrl",
+                                                            "$data": "${createdBy}",
+                                                            "tooltip": "Abrir chat de Teams con el vendedor.",
+                                                            "iconUrl": "https://raw.githubusercontent.com/cdragosf/collabdaysmad2024/main/OfficeChat.png",
+                                                            "url": "https://teams.microsoft.com/l/chat/0/0?users=cdragosf@yxm46.onmicrosoft.com"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${fields.Descripcion}",
+                                    "wrap": true
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Column",
+                    "width": "5px"
+                }
+            ]
+        }
+    ]
+}
